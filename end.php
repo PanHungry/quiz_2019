@@ -8,42 +8,54 @@
 	}
 ?>
 
-<DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="pl">
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Become an engineer!</title>
+	<title>Zostań inżynierem!</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body bgcolor="#BBBBBB">
+<body>
 
-<?php
+	<div class="container">
+		<div id="summary">
 
-	require_once "connect.php";
+			<?php
+
+				require_once "connect.php";
 		
-echo "<b>Prawidłowych odpowiedzi:</b> ".$_SESSION['pkt_sesja']."/".$_SESSION['ile_pytan']."<br />";
+				echo "<b>Prawidłowych odpowiedzi:</b> ".$_SESSION['pkt_sesja']."/20 <br>";
 
-$win_ratio = ($_SESSION['pkt_sesja']/20)*100;
+				$win_ratio = ($_SESSION['pkt_sesja']/20)*100;
 
-echo "<b>Wynik: </b>";
+				echo "<b>Wynik: </b>";
 
-	if($win_ratio>=50)
-	{
-		echo $win_ratio."% <br />"."<b><span style='color:lime;'>Zdane!</span></b>";
-	}
-	else
-	{
-		echo $win_ratio."% <br />"."<b><span style='color:red;'>Niezdane!</span></b>";
-	}
+					if($win_ratio>=50)
+					{
+						echo $win_ratio."% <br />"."<b><span style='color:lime;'>Zdane!</span></b>";
+					}
+					else
+					{
+						echo $win_ratio."% <br />"."<b><span style='color:red;'>Niezdane!</span></b>";
+					}
 
-echo "<br /><br />";
+			?>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div id="answers">
+
+			<?php
 
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 
 	$polskie_znaki ="SET NAMES utf8";
 	$wysylanie = $polaczenie->query($polskie_znaki);
-	$id = $_SESSION['id'];
+	$id_user = $_SESSION['id'];
 
 		if($polaczenie->connect_errno!=0)
 		{
@@ -73,7 +85,7 @@ echo "<br /><br />";
 		
 		$twoja_odp = $_SESSION['twoja_odp'][$x];
 		
-		echo "<b>Twoja odpowiedz: </b>";
+		echo "<b>Twoja odpowiedź: </b>";
 		
 		switch ($twoja_odp) 
 			{
@@ -154,7 +166,8 @@ echo "<br /><br />";
 		
 		
 //////////////////////////////////////////// PODLICZANIE PUNKTÓW
-
+		if($_SESSION['licz']==1)
+		{
 
 $_SESSION['pkt_calosc'] = $_SESSION['pkt_sesja'] + $_SESSION['pkt_calosc'];
 $aktualne_punkty = $_SESSION['pkt_calosc'];
@@ -163,28 +176,38 @@ $wszystkie_punkty = $_SESSION['pytania_calosc'];
 $skutecznosc = ($aktualne_punkty / $wszystkie_punkty) * 100;
 $_SESSION ['skutecznosc'] = $skutecznosc;
 
-	//echo "aktualne ".$aktualne_punkty."  wszystkie ".$wszystkie_punkty."  ratio".$skutecznosc."<br /><br />";
+	//echo " ID usera ".$id_user." aktualne ".$aktualne_punkty."  wszystkie ".$wszystkie_punkty."  ratio".$skutecznosc."<br /><br />";
 
 $_SESSION['ile_pytan'] = 0;
 $_SESSION['pkt_sesja'] = 0;
 
+		
+
 			$polaczenie->query(
-			"UPDATE `uzytkownicy` SET `punkty_calosc` = '$aktualne_punkty' WHERE `uzytkownicy`.`id` = '$id'");
+			"UPDATE `users` SET `correct` = '$aktualne_punkty' WHERE `users`.`id` = '$id_user'");
 			
 			$polaczenie->query(
-			"UPDATE `uzytkownicy` SET `pytania_all` = '$wszystkie_punkty' WHERE `uzytkownicy`.`id` = '$id'");
+			"UPDATE `users` SET `questions` = '$wszystkie_punkty' WHERE `users`.`id` = '$id_user'");
 			
 			$polaczenie->query(
-			"UPDATE `uzytkownicy` SET `ratio` = '$skutecznosc' WHERE `uzytkownicy`.`id` = '$id'");
+			"UPDATE `users` SET `ratio` = '$skutecznosc' WHERE `users`.`id` = '$id_user'");
+
+			$_SESSION['licz']=0;
+
+		}
 			
 			$polaczenie->close();
 			
-		}
+	}
 ?>
 
+	</div> 
+</div>
+
 <form action="gra.php" method="post">
-<input type="submit" value="Wróć do swojego panelu" />
+	<input type="submit" value="Wróć do swojego panelu" />
 </form>
+
 
 </body>
 </html>

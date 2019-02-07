@@ -65,13 +65,13 @@ for ($i=0; $i<$ile_wylosowac; $i++)
  		if ($losowanie_ok==true)
  		{
 			 $pytania[$i] = $liczba; 
-			 echo "$pytania[$i] ";
+			 //echo "$pytania[$i] ";
  		}
 
  	} while($losowanie_ok!=true);
  }
 
-$id[20] = array();
+//$id[20] = array();
 $answer[20] = array();
 $odpA[20] = array();
 $odpB[20] = array();
@@ -89,12 +89,15 @@ for ($i=0; $i<$ile_wylosowac; $i++)
 			$wiersz=$rezultat->fetch_assoc();
 			
 			$_SESSION['prawidlowa'][$i]= $wiersz['answer'];
-			$id[$i] = $wiersz['id'];
+			//$id[$i] = $wiersz['id'];
+			$_SESSION['id_pytan'][$i] = $wiersz['id'];
 			$answer[$i] = $wiersz['tresc'];
 			$odpA[$i] = $wiersz['odpa'];
 			$odpB[$i] = $wiersz['odpb'];
 			$odpC[$i] = $wiersz['odpc'];
 			$odpD[$i] = $wiersz['odpd'];
+
+
 			
 			//echo "Pytanie nr ".($_SESSION['ile_pytan']+1)."/20 <br />";
 			
@@ -107,6 +110,7 @@ for ($i=0; $i<$ile_wylosowac; $i++)
 			
 		}
 }
+
 			$polaczenie->close();
 
 			?>
@@ -116,23 +120,23 @@ for ($i=0; $i<$ile_wylosowac; $i++)
 
 		<div id="quiz" class="container">
 
-			
-
 			<?php for ($i=0; $i<$ile_wylosowac; $i++){ ?>
 
 				<div class="question">
 
 					<h4><?php echo "<b>".$answer[$i]."</b>"; ?> </h6>
 
-					<input type="radio" name="ans<?php $i ?>" value="a" /> <?php echo $odpA[$i]; ?> <br />
-					<input type="radio" name="ans<?php $i ?>" value="b" /> <?php echo $odpB[$i]; ?> <br />
-					<input type="radio" name="ans<?php $i ?>" value="c" /> <?php echo $odpC[$i]; ?> <br />
-					<input type="radio" name="ans<?php $i ?>" value="d" /> <?php echo $odpD[$i]; ?> <br />
-			
+					<label><input type="checkbox" name="ans<?php echo $i ?>" value="a" /> <?php echo $odpA[$i]; ?> </label>
+					<label><input type="checkbox" name="ans<?php echo $i ?>" value="b" /> <?php echo $odpB[$i]; ?> </label>
+					<label><input type="checkbox" name="ans<?php echo $i ?>" value="c" /> <?php echo $odpC[$i]; ?> </label>
+					<label><input type="checkbox" name="ans<?php echo $i ?>" value="d" /> <?php echo $odpD[$i]; ?> </label>
+
 				</div>
+
+
 			<?php }?>
 
-			
+		<input type="submit" value="Gotowe!"/>
 
 		</div>
 

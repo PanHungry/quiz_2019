@@ -5,7 +5,7 @@ body{
     background-color: #000000;
     text-align: center;
     font-size:16px;
-    color:#fff;
+    color:#e4e4e4;
 }
 
 a{
@@ -28,6 +28,7 @@ input{
 
 input[type=submit]{
     font-family: Raleway, Helvetica, sans-serif;
+    font-size:1rem;
     background-color: #000;
     padding: 0.6rem;
     border-color: #3f3f3f;
@@ -57,7 +58,7 @@ footer{
 }
 
 .container{
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding-bottom:30px;
     /*border-color: red;
@@ -108,7 +109,7 @@ footer{
 /* Rejestracja.php */
 
 .error{
-	color:red;
+	color:#ff0000;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -135,9 +136,25 @@ footer{
     border-style: solid;
     border-width: 1px;
     border-radius: 50px;
-    border-color: rgb(80, 80, 80);
+    border-color: #505050;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
     margin:10px 0px;
+}
+
+.question label{
+    display: block;
+}
+
+/* end.php */
+
+#summary{
+    line-height: 1.5;
+}
+
+#answers{
+    text-align: left;
+    line-height: 1.5;
+    margin-bottom: -20px;
 }
