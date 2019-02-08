@@ -4,18 +4,22 @@ session_start();
 
 for ($i=0; $i<20; $i++)
 {
-	//if(isset($_POST['ans'.$i]))
-	//{
+	if(isset($_POST['ans'.$i]))
+	{
 		$answer = $_POST['ans'.$i];
 
-		if($answer != ("a" AND "b" AND "c" AND "d"))
+		/*if($answer != ("a" AND "b" AND "c" AND "d"))
 		{
 			$_SESSION['twoja_odp'][$i] = "brak_odp";
 		}
 		else 
-		{
+		{*/
 			$_SESSION['twoja_odp'][$i] = $_POST['ans'.$i];
-		}
+	}
+	else
+	{
+		$_SESSION['twoja_odp'][$i] = "brak_odp";
+	}
 
 		if ($answer == $_SESSION['prawidlowa'][$i]) 
 		{
@@ -33,6 +37,7 @@ for ($i=0; $i<20; $i++)
 		//$_SESSION['twoja_odp'][$_SESSION['ile_pytan']] = "brak_odp";
 		//$_SESSION['poprawnosc'][$_SESSION['ile_pytan']] = 0;
 	//}
+	$answer = "clear";
 }
 	
 	//$_SESSION['id_pytan'][$_SESSION['ile_pytan']] = $_SESSION['id_pytania'];

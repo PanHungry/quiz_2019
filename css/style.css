@@ -83,22 +83,6 @@ footer{
     font-size: 0.8rem;
 }
 
-@media (max-width: 450px){
-    #showcase h1{
-        font-size: 1.5rem;
-    }
-
-    #showcase h2{
-        display: none;
-    }
-}
-
-@media (max-height: 400px){
-    footer{
-        display:none;
-    }
-}
-
 /* Gra.php */
 
 #logout{
@@ -157,4 +141,58 @@ footer{
     text-align: left;
     line-height: 1.5;
     margin-bottom: -20px;
+}
+
+h3{
+    margin-bottom: 0px;
+}
+
+/* ranking.php */
+
+table{
+
+    border: 5px; 
+    padding: 5px;
+    border-spacing: 1px;
+    margin: auto;
+    min-width: 350px;
+}
+
+th, td{
+    border: 1px solid #505050;
+    border-radius: 5px;
+    padding: 5px 9px;
+    text-align: center;
+}
+
+caption{
+    align: top;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+@media (max-width: 450px){
+    #showcase h1{
+        font-size: 1.5rem;
+    }
+
+    #showcase h2{
+        display: none;
+    }
+}
+
+@media (max-height: 400px){
+    footer{
+        display:none;
+    }
+
+    table{
+    min-width: 0px;
+    }    
+    
 }

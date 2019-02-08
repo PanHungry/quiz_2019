@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body bgcolor="#BBBBBB">
+<body>
 
 	<?php
 
@@ -120,16 +120,18 @@ for ($i=0; $i<$ile_wylosowac; $i++)
 
 		<div id="quiz" class="container">
 
+		<h2>Pamiętaj, że tylko jedna odpowiedź jest poprawna. Powodzenia!</h2>
+
 			<?php for ($i=0; $i<$ile_wylosowac; $i++){ ?>
 
 				<div class="question">
 
 					<h4><?php echo "<b>".$answer[$i]."</b>"; ?> </h6>
 
-					<label><input type="checkbox" name="ans<?php echo $i ?>" value="a" /> <?php echo $odpA[$i]; ?> </label>
-					<label><input type="checkbox" name="ans<?php echo $i ?>" value="b" /> <?php echo $odpB[$i]; ?> </label>
-					<label><input type="checkbox" name="ans<?php echo $i ?>" value="c" /> <?php echo $odpC[$i]; ?> </label>
-					<label><input type="checkbox" name="ans<?php echo $i ?>" value="d" /> <?php echo $odpD[$i]; ?> </label>
+					<label><input type="radio" name="ans<?php echo $i ?>" value="a" /> <?php echo $odpA[$i]; ?> </label>
+					<label><input type="radio" name="ans<?php echo $i ?>" value="b" /> <?php echo $odpB[$i]; ?> </label>
+					<label><input type="radio" name="ans<?php echo $i ?>" value="c" /> <?php echo $odpC[$i]; ?> </label>
+					<label><input type="radio" name="ans<?php echo $i ?>" value="d" /> <?php echo $odpD[$i]; ?> </label>
 
 				</div>
 

@@ -8,15 +8,17 @@
 	}
 ?>
 
-<DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="pl">
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Become an engineer!</title>
+	<title>Zostań inżynierem!</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body bgcolor="#BBBBBB">
+<body>
 
 <?php
 
@@ -35,47 +37,60 @@
 		{	
 		
 		$rezultat = $polaczenie->query(
-		"SELECT * FROM `uzytkownicy` ORDER BY `uzytkownicy`.`ratio` DESC LIMIT 10");
+		"SELECT * FROM `users` ORDER BY `users`.`ratio` DESC LIMIT 10");
+
+		?>
+		<div class="container" id="ranking">
+		<?php
 				
-				echo "<table border='1' cellpadding='7' cellspacing='0'>
-				<caption align='top'><b>TOP 10 w % poprawnych odpowiedzi</b></caption>";
-				echo "<tr><th><b>Miejsce</b></th><th><b>Nick</b></th><th><b>Wynik</b></th></tr>";
+				echo "<table>
+				<caption>TOP 10 w % poprawnych odpowiedzi</caption>";
+				echo "<tr><th>Miejsce</th><th>Nick</th><th>Wynik</th></tr>";
 				
 				$licznik = 1;
 				
 				while($wiersz=$rezultat->fetch_array())
 				{
-					echo "<tr align='middle'><th>$licznik</th><td>".$wiersz['user']."</td><td>".$wiersz['ratio']."%</td></tr>";
+					echo "<tr><th>$licznik</th><td>".$wiersz['nick']."</td><td>".$wiersz['ratio']."%</td></tr>";
 					$licznik++;
 				}
 				
 				$licznik = 1;
 				
-				echo "</table><br />";
+				echo "</table>";
+
+		?>
+		</div>
+		
+		<div class="container" id="ranking">
+
+		<?php
 				
 		$rezultat = $polaczenie->query(
-		"SELECT * FROM `uzytkownicy` ORDER BY `uzytkownicy`.`punkty_calosc` DESC LIMIT 10");
+		"SELECT * FROM `users` ORDER BY `users`.`correct` DESC LIMIT 10");
 				
-				echo "<table border='1' cellpadding='7' cellspacing='0'>
-				<caption align='top'><b>TOP 10 w liczbie poprawnych odpowiedzi</b></caption>";
-				echo "<tr><th><b>Miejsce</b></th><th><b>Nick</b></th><th><b>Punkty</b></th></tr>";
+				echo "<table>
+				<caption>TOP 10 w liczbie poprawnych odpowiedzi</caption>";
+				echo "<tr><th>Miejsce</th><th>Nick</th><th>Punkty</th></tr>";
 				
 				$licznik = 1;
 				
 				while($wiersz=$rezultat->fetch_array())
 				{
-					echo "<tr align='middle'><th>$licznik</th><td>".$wiersz['user']."</td><td>".$wiersz['punkty_calosc']."</td></tr>";
+					echo "<tr><th>$licznik</th><td>".$wiersz['nick']."</td><td>".$wiersz['correct']."</td></tr>";
 					$licznik++;
 				}
 				
 				$licznik = 1;
 				
-				echo "</table><br />";
+				echo "</table>";
 				
 		$polaczenie->close();
 		}
 		
 ?>
+
+		</div>
 
 <form action="gra.php" method="post">
 <input type="submit" value="Wróć do swojego panelu" />

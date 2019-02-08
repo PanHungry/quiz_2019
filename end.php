@@ -27,19 +27,19 @@
 
 				require_once "connect.php";
 		
-				echo "<b>Prawidłowych odpowiedzi:</b> ".$_SESSION['pkt_sesja']."/20 <br>";
+				echo "<h3>Prawidłowych odpowiedzi: ".$_SESSION['pkt_sesja']."/20</h3>";
 
 				$win_ratio = ($_SESSION['pkt_sesja']/20)*100;
 
-				echo "<b>Wynik: </b>";
+				echo "<h3>Wynik: ";
 
 					if($win_ratio>=50)
 					{
-						echo $win_ratio."% <br />"."<b><span style='color:lime;'>Zdane!</span></b>";
+						echo $win_ratio."% "."<span style='color:lime;'>Zdane!</span></h3>";
 					}
 					else
 					{
-						echo $win_ratio."% <br />"."<b><span style='color:red;'>Niezdane!</span></b>";
+						echo $win_ratio."%"."<h3><span style='color:red;'>Niezdane!</span></h3>";
 					}
 
 			?>
