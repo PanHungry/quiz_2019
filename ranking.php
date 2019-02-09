@@ -89,12 +89,14 @@
 		}
 		
 ?>
-
+		</div>
+		<div class="container">
+			<form action="gra.php" method="post">
+				<input type="submit" value="Wróć do swojego panelu" />
+			</form>
 		</div>
 
-<form action="gra.php" method="post">
-<input type="submit" value="Wróć do swojego panelu" />
-</form>
+
 
 
 </body>

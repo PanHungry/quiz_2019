@@ -2,7 +2,7 @@
 
 body{
     font-family: Raleway, Helvetica, sans-serif;
-    background-color: #000000;
+    background-color: #111111;
     text-align: center;
     font-size:16px;
     color:#e4e4e4;
@@ -29,7 +29,7 @@ input{
 input[type=submit]{
     font-family: Raleway, Helvetica, sans-serif;
     font-size:1rem;
-    background-color: #000;
+    background-color: #111111;
     padding: 0.6rem;
     border-color: #3f3f3f;
     border-radius: 70px; 
@@ -39,6 +39,30 @@ input[type=submit]{
 
 input[type=submit]:hover{
     border-color: #636363;
+}
+
+nav{
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+nav ul{
+    padding:0px;
+    margin:0;
+    list-style-type: none;
+}
+
+nav li{
+    display: inline;
+    padding: 0px 10px;
+    text-transform: uppercase; 
+}
+
+nav a{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
 }
 
 footer{
@@ -51,6 +75,7 @@ footer{
 
 #register a{
     color:#00ff62;
+    font-size: 1.1rem;
 }
 
 #register a:hover{
@@ -80,7 +105,8 @@ footer{
 
 #showcase h2{
     color: #ffffff;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
 }
 
 /* Gra.php */
@@ -166,7 +192,6 @@ th, td{
 }
 
 caption{
-    align: top;
     padding-bottom: 5px;
     font-weight: bold;
 }
@@ -176,7 +201,16 @@ caption{
 
 
 
-@media (max-width: 450px){
+@media (max-width: 560px){
+    nav ul{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    table{
+        min-width: 0px;
+    }
+
     #showcase h1{
         font-size: 1.5rem;
     }
@@ -189,10 +223,5 @@ caption{
 @media (max-height: 400px){
     footer{
         display:none;
-    }
-
-    table{
-    min-width: 0px;
     }    
-    
 }

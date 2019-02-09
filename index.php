@@ -25,6 +25,16 @@
 		<div class="container" id="showcase">
 			<h1>Zostań inżynierem</h1>
 			<h2>Quiz z pytaniami egzaminacyjnymi</h2>
+		</div>	
+		<div class="container" id="nav">
+			<nav class="navi">
+				<ul class="navi">
+					<li><a href="index.php">Home</a></li>
+					<li><a href="regulamin.php">Regulamin</a></li>
+					<li><a href="about.php">O autorze</a></li>
+					<li><a href="contact.php">Kontakt</a></li>
+				</ul>
+			</nav>
 		</div>
 
 		<div class="container" id="register">
