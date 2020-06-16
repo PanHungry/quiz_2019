@@ -31,8 +31,8 @@
 				<ul class="navi">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="regulamin.php">Regulamin</a></li>
-					<li><a href="about.php">O autorze</a></li>
-					<li><a href="contact.php">Kontakt</a></li>
+					<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSetnCIa57fRRX5mx1u4klAUDUAJMxSrbM7QHHjB5MmzSVVs8g/viewform?usp=sf_link">Zgłoś bug</a></li>
+					<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfaxOd7QKIyFk0kvbCbOkR64dpye-hAfWYTcoS3plrV_7tGrw/viewform?usp=sf_link">Zgłoś złą odpowiedź</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -55,11 +55,11 @@
 	if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
 	?>
 	
-	<footer>
+	<!--<footer>
 		<div class="container">
 			<p>Copyright &copy; 2019</p>
 		</div>
-	</footer>
+	</footer>-->
 
 </body>
 </html>

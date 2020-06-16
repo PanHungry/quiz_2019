@@ -1,11 +1,11 @@
 <?php session_start(); ?>
 
 <?php
-	/*if(!isset($_SESSION['zalogowany']))
+	if(!isset($_SESSION['zalogowany']))
 	{
 		header ('Location: index.php');
 		exit();
-	}*/
+	}
 ?>
 
 
@@ -19,6 +19,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Zostań inżynierem!</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script data-ad-client="ca-pub-9022779141538686" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
