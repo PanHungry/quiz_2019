@@ -25,9 +25,9 @@
 
 <body>
 	<div class="container">
-		<h3>Dziękuję za rejestrację w serwisie!
+		<h3>Dziękuję za rejestrację w serwisie!</br>
 			Możesz już zalogować się na swoje konto!</h3>
-
+			</br></br>
 		<a href="index.php">Zaloguj się!</a>
 	</div>
 

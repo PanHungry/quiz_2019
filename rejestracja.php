@@ -60,7 +60,7 @@
 		//}
 		
 		// BOT or NOT?
-		$sekret = "6LfDQn4UAAAAAFm3rl45bpr3fkXdDKXBzY5GrqBZ";
+		$sekret = "6LeXysQUAAAAALcbkCUPkdUrJt81NWLyMyjHkuFQ";
 		
 		$sprawdz = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$sekret.'&response='.$_POST[
 		'g-recaptcha-response']);
@@ -212,7 +212,7 @@
 	
 	?>
 
-				<div class="g-recaptcha" data-sitekey="6LfDQn4UAAAAALg30Vdd15-oBwf_Ahu05mZTnPdI"></div>
+				<div class="g-recaptcha" data-sitekey="6LeXysQUAAAAAN912WZDWvd1aqSG7a-VjRM3lA-F"></div>
 
 	<?php
 	
